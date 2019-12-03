@@ -1,0 +1,92 @@
+= link_to "北海道", prefecture_path(id: 1), class: "article_contents__area__map__hokkaido menu-button"
+.menu-button.article_contents__area__map__tohoku
+  %span.tohoku 東北
+  = link_to "青森", prefecture_path(id: 2)
+  = link_to "岩手", prefecture_path(id: 3)
+  = link_to "宮城", prefecture_path(id: 4)
+  = link_to "秋田", prefecture_path(id: 5)
+  = link_to "山形", prefecture_path(id: 6)
+  = link_to "福島", prefecture_path(id: 7)
+.menu-button.article_contents__area__map__kanto
+  %span.kanto 関東
+  = link_to "茨城", prefecture_path(id: 8)
+  = link_to "栃木", prefecture_path(id: 9)
+  = link_to "群馬", prefecture_path(id: 10)
+  = link_to "埼玉", prefecture_path(id: 11)
+  = link_to "千葉", prefecture_path(id: 12)
+  = link_to "東京", prefecture_path(id: 13)
+  = link_to "神奈川", prefecture_path(id: 14)
+.menu-button.article_contents__area__map__hokuriku
+  %span.hokuriku 北陸
+  = link_to "新潟", prefecture_path(id: 15)
+  = link_to "富山", prefecture_path(id: 16)
+  = link_to "石川", prefecture_path(id: 17)
+  = link_to "福井", prefecture_path(id: 18)
+.menu-button.article_contents__area__map__chubu
+  %span.chubu 中部
+  = link_to "山梨", prefecture_path(id: 19)
+  = link_to "長野", prefecture_path(id: 20)
+  = link_to "岐阜", prefecture_path(id: 21)
+  = link_to "静岡", prefecture_path(id: 22)
+  = link_to "愛知", prefecture_path(id: 23)
+.menu-button.article_contents__area__map__kinki
+  %span.kinki 近畿
+  = link_to "三重", prefecture_path(id: 24)
+  = link_to "滋賀", prefecture_path(id: 25)
+  = link_to "京都", prefecture_path(id: 26)
+  = link_to "大阪", prefecture_path(id: 27)
+  = link_to "兵庫", prefecture_path(id: 28)
+  = link_to "奈良", prefecture_path(id: 29)
+  = link_to "和歌山", prefecture_path(id: 30)
+.menu-button.article_contents__area__map__chugoku
+  %span.chugoku 中国
+  = link_to "鳥取", prefecture_path(id: 31)
+  = link_to "島根", prefecture_path(id: 32)
+  = link_to "岡山", prefecture_path(id: 33)
+  = link_to "広島", prefecture_path(id: 34)
+  = link_to "山口", prefecture_path(id: 35)
+.menu-button.article_contents__area__map__shikoku
+  %span.shikoku 四国
+  = link_to "徳島", prefecture_path(id: 36)
+  = link_to "香川", prefecture_path(id: 37)
+  = link_to "愛媛", prefecture_path(id: 38)
+  = link_to "高知", prefecture_path(id: 39)
+.menu-button.article_contents__area__map__kyushu
+  %span.kyushu 九州
+  = link_to "福岡", prefecture_path(id: 40)
+  = link_to "佐賀", prefecture_path(id: 41)
+  = link_to "長崎", prefecture_path(id: 42)
+  = link_to "熊本", prefecture_path(id: 43)
+  = link_to "大分", prefecture_path(id: 44)
+  = link_to "宮崎", prefecture_path(id: 45)
+  = link_to "鹿児島", prefecture_path(id: 46)
+= link_to "沖縄", prefecture_path(id: 47), class: "article_contents__area__map__okinawa menu-button"
+
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}
+:javascript
+  $(function(){
+    $('.tohoku').click(function () {
+      window.location.href = '/prefectures/48';
+    });
+    $('.kanto').click(function () {
+      window.location.href = '/prefectures/49';
+    });
+    $('.hokuriku').click(function () {
+      window.location.href = '/prefectures/50';
+    });
+    $('.chubu').click(function () {
+      window.location.href = '/prefectures/51';
+    });
+    $('.kinki').click(function () {
+      window.location.href = '/prefectures/52';
+    });
+    $('.chugoku').click(function () {
+      window.location.href = '/prefectures/53';
+    });
+    $('.shikoku').click(function () {
+      window.location.href = '/prefectures/54';
+    });
+    $('.kyushu').click(function () {
+      window.location.href = '/prefectures/55';
+    });
+  });

@@ -13,5 +13,83 @@
  *= require_tree .
  *= require_self
  */
+ @import "reset";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "bootstrap"; 
+ @import url(https://fonts.googleapis.com/css?family=Roboto:400,500); 
+ @import "articles/index";
+ @import "articles/spot";
 
- @import "articles";
+ *{
+  font-family: 'Kosugi Maru', sans-serif;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header{
+  position: fixed;
+  z-index:150;
+  width: 100vw;
+  background-color: #f5f5f5;
+  .navbar.shadow-sm{
+    height: 70px;
+  }
+  a{
+    font-family: 'Maven Pro', sans-serif;
+  }
+}
+.footer{
+  height: 100px;
+  width: 100vw;
+  &__contents{
+    border-top: 0.5px solid rgb(130, 130, 130);
+    &--link{
+      text-align: center;
+      padding-top: 10px;
+      .btn-social-square {
+        display: inline-block;
+        text-decoration: none;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 23px;
+        border-radius: 50%;
+        text-align: center;
+        overflow: hidden;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+        transition: .3s;
+        margin: 0 10px;
+      }
+      .btn-social-square i {
+        line-height:50px;
+      }
+      .btn-social-square:hover {
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.28);
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+      }
+      .btn-social-square--twitter {
+        color: #22b8ff;
+        background-image: linear-gradient(#aeecff 0%, #57c8ff 100%);
+      }
+      .btn-social-square--github {
+        color: #6183f3;
+        background-image: linear-gradient(#b5d3ff 0%, #6b8bff 100%);
+      }
+      .btn-social-square--instagram {
+        color: #ff6d82;
+        background-image: linear-gradient(#ffcfd7 0%, #ff7285 100%);
+      }
+      .btn-social-square--qiita {
+        color: #60d245;
+        background-image: linear-gradient(#b9ffca 0%, #80e067 100%);
+      }
+    }
+  }
+}

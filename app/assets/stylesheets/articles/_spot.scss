@@ -1,0 +1,266 @@
+@mixin point ($color: #fff){
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  line-height: 90px;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  border: solid 3px $color;
+  background-color: #f5f5f5;
+  span{
+    height: 84px;
+    width: 84px;
+    display: block;
+    border-radius: 50%;
+  }
+}
+
+.article_contents__area__map{
+  position: relative;
+  &__hokkaido{
+    @include point($color: rgb(0, 88, 239));
+    position: absolute;
+    top: 0;
+    left: 100%;
+    text-decoration: none;
+    color: #333;
+  }
+  &__tohoku{
+    @include point($color: rgb(31, 131, 252));
+    position: absolute;
+    top: 35%;
+    left: 85%;
+  }
+  &__kanto{
+    @include point($color: rgb(125, 184, 255));
+    position: absolute;
+    top: 65%;
+    left: 80%;
+  }
+  &__hokuriku{
+    @include point($color: rgb(84, 227, 237));
+    position: absolute;
+    top: 25%;
+    left: 40%;
+  }
+  &__chubu{
+    @include point($color: rgb(74, 211, 101));
+    position: absolute;
+    top: 85%;
+    left: 60%;
+  }
+  &__kinki{
+    @include point($color: rgb(207, 249, 135));
+    position: absolute;
+    top: 85%;
+    left: 40%;
+  }
+  &__shikoku{
+    @include point($color: rgb(142, 118, 0));
+    position: absolute;
+    top: 85%;
+    left: 20%;
+  }
+  &__chugoku{
+    @include point($color: rgb(255, 221, 119));
+    position: absolute;
+    top: 35%;
+    left: 20%;
+  }
+  &__kyushu{
+    @include point($color: rgb(221, 130, 239));
+    position: absolute;
+    top: 50%;
+    left: -5%;
+  }
+  &__okinawa{
+    @include point($color: rgb(173, 73, 193));
+    position: absolute;
+    top: 80%;
+    left: -15%;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.menu-button:hover {
+  text-decoration: none;
+  color: #333;
+  background: rgb(210, 210, 210);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.28), 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+}
+.menu-button a {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  text-decoration: none;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  z-index: 2;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+.menu-button a:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.28), 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+}
+
+.menu-button a:nth-child(2) {
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(255, 81, 32);
+}
+.menu-button a:nth-child(3) {
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(255, 182, 56);
+}
+.menu-button a:nth-child(4) {
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(255, 225, 0);
+}
+.menu-button a:nth-child(5) {
+  -webkit-transition-delay: 0.4s;
+  -moz-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(188, 255, 54);
+}
+.menu-button a:nth-child(6) {
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(0, 255, 60);
+}
+.menu-button a:nth-child(7) {
+  -webkit-transition-delay: 0.6s;
+  -moz-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(53, 134, 255);
+}
+.menu-button a:nth-child(8) {
+  -webkit-transition-delay: 0.7s;
+  -moz-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: rgb(166, 69, 250);
+}
+.menu-button:hover a {
+  opacity: 1;
+  width: 50px;
+  height: 50px;
+}
+.menu-button:hover a:nth-child(2) {
+  right: 97px;
+  bottom: 22px;
+}
+.menu-button:hover a:nth-child(2):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(255, 55, 0);
+  color: #fff;
+}
+.menu-button:hover a:nth-child(3) {
+  right: 75px;
+  bottom: 75px;
+}
+.menu-button:hover a:nth-child(3):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(255, 162, 0);
+  color: #fff;
+}
+.menu-button:hover a:nth-child(4) {
+  right: 20px;
+  bottom: 95px;
+}
+.menu-button:hover a:nth-child(4):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(255, 247, 0);
+  color: #9d9d9d;
+}
+.menu-button:hover a:nth-child(5) {
+  right: -36px;
+  bottom: 75px;
+}
+.menu-button:hover a:nth-child(5):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(170, 255, 0);
+  color: #bcbcbc;
+}
+.menu-button:hover a:nth-child(6) {
+  right: -57px;
+  bottom: 22px;
+}
+.menu-button:hover a:nth-child(6):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(0, 255, 60);
+  color: #fff;
+}
+.menu-button:hover a:nth-child(7) {
+  right: -36px;
+  bottom: -34px;
+}
+.menu-button:hover a:nth-child(7):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(0, 102, 255);
+  color: #fff;
+}
+.menu-button:hover a:nth-child(8) {
+  right: 20px;
+  bottom: -57px;
+}
+.menu-button:hover a:nth-child(8):hover {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  transition-delay: 0s;
+  background: rgb(136, 0, 255);
+  color: #fff;
+}
