@@ -142,5 +142,5 @@ user.save!
   ["四国","", ""],
   ["九州","", ""]
 ].each do |name, id, profile|
-Spot.create!([{name: name, parent_id: id, profile: profile}])
+Prefecture.create!([{name: name, parent_id: id, profile: profile}])
 end
