@@ -1,2 +1,88 @@
-%h1 Articles#index
-%p Find me in app/views/articles/index.html.haml
+.article_header
+  %ul
+    %li
+      = image_tag ('header1.png')
+    %li
+      = image_tag ('header2.png')
+    %li
+      = image_tag ('header3.png')
+  .article_box
+    %h1 旅の過程にこそ価値がある
+    %h3 - Steve Jobs -
+    %h2 さあ 日本を楽しもう
+.article_contents
+  .article_contents__recommended.container
+    .article_contents__recommended--title
+      %i.far.fa-star.fa-lg
+      %h3 おすすめ
+    %ul
+      %li
+        = link_to "東京都", prefecture_path(id:13), class:"popularity1"
+      %li
+        = link_to "神奈川県", prefecture_path(id:14), class:"popularity2"
+      %li
+        = link_to "北海道", prefecture_path(id:1), class:"popularity3"
+      %li
+        = link_to "山梨県", prefecture_path(id:19), class:"popularity4"
+    #link-btn
+  .article_contents__area.container
+    .article_contents__area--title
+      %i.fas.fa-map-marked-alt.fa-lg
+      %h3 エリアから探す
+    .article_contents__area__map
+      = image_tag ('japan_map.png'), class: "article_contents__area__map--japan"
+      = render partial: "area-point", locals: {prefectures:  @prefectures}
+  .article_contents__list.container
+    .article_contents__list--title
+      %i.fab.fa-font-awesome-flag.fa-2x
+      %h3 新着記事
+    .article_contents__list__new.row
+      - @articles.each do |article|
+        .col-md-4
+          .card.mb-4.shadow-sm
+            %img{:src => "#{article.image.url}"}
+            .card-body
+              %p.card-text
+                = article.title
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  = link_to "view", article_path(article.id), method: :get, class: "btn btn-sm btn-outline-secondary"
+                  = link_to "Edit", edit_article_path(article.id), class: "btn btn-sm btn-outline-secondary"
+                  = link_to "Delete", article_path(article.id), method: :delete, class: "btn btn-sm btn-outline-secondary"
+                %small.text-muted
+                  = article.prefecture
+    .row
+      = paginate(@articles)
+.return_btn TOP
+
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}
+:javascript
+  $(function(){
+    var $setElm = $('.article_header'),
+    fadeSpeed = 2000,
+    switchDelay = 6000;
+    $setElm.each(function(){
+      var targetObj = $(this),
+          findUl = targetObj.find('ul'),
+          findLi = targetObj.find('li'),
+          findLiFirst = targetObj.find('li:first');
+      findLi.css({display:'block',opacity:'0',zIndex:'99'});
+      findLiFirst.css({zIndex:'100'}).stop().animate({opacity:'1'},fadeSpeed);
+      setInterval(function(){
+          findUl.find('li:first-child').animate({opacity:'0'},fadeSpeed).next('li').css({zIndex:'100'}).animate({opacity:'1'},fadeSpeed).end().appendTo(findUl).css({zIndex:'99'});
+      },switchDelay);
+     });
+
+    var pagetop = $('.return_btn');
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        pagetop.fadeIn();
+      } else {
+        pagetop.fadeOut();
+      }
+    });
+    pagetop.click(function () {
+    $('body, html').animate({ scrollTop: 0 }, 500);
+      return false;
+    });
+  });

@@ -2,10 +2,48 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Traverip
+    %title とらべりっぷで思い出残そう！
+    = favicon_link_tag('favicon')
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.7.2/css/all.css", integrity: "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", rel: "stylesheet"}/
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    = javascript_include_tag 'application'
+
   %body
+    %header
+      .navbar.shadow-sm
+        .d-flex.justify-content-between
+          = link_to root_path, class: "navbar-brand d-flex align-items-center" do
+            %i.fa.fa-paper-plane
+            %strong とらべりっぷ
+        - if user_signed_in?
+          - if current_user.id == 1
+            .content
+              = "#{current_user.name} Wellcom!"
+              = link_to "Create an article", new_article_path, class: "btn btn-primary"
+              = link_to "Upload", new_article_path, class: "btn btn-primary"
+              = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+          -else 
+            .content
+              = "#{current_user.name} Wellcom!"
+              = link_to "Upload", new_article_path, class: "btn btn-primary"
+              = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+        - else
+          .content
+            = link_to 'Sign In', new_user_session_path, class: "btn btn-primary"
+            = link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"
     = yield
+  .footer
+    .footer__contents.container
+      .footer__contents--link
+        %a.btn-social-square.btn-social-square--twitter{href: "https://twitter.com/ano_memento", target: "_blank"}
+          %i.fab.fa-twitter
+        %a.btn-social-square.btn-social-square--github{href: "https://github.com/anomeme", target: "_blank"}
+          %i.fab.fa-github
+        %a.btn-social-square.btn-social-square--instagram{href: "https://www.instagram.com/kentea.s", target: "_blank"}
+          %i.fab.fa-instagram
+        %a.btn-social-square.btn-social-square--qiita{href: "https://qiita.com/anomeme", target: "_blank"}
+          %i.fas.fa-search

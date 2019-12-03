@@ -1,0 +1,227 @@
+@mixin transition{
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+@mixin osusume{
+  display: block;
+  height: 250px;
+  width: 250px;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 30px;
+  padding: 5px 0 0 10px;
+  object-fit: cover;
+  text-shadow:
+    1px 1px #aaa,
+    2px 2px #999,
+    3px 3px #888,
+    4px 4px #777,
+    5px 5px #666,
+}
+
+.article_header{
+  width: 100vw;
+  height: 550px;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  ul{
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    position: relative;
+    li{
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 550px;
+      display: none;
+      position: absolute;
+    }
+  }
+  .article_box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 550px;
+    width: 100%;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    z-index: 120;
+    h1{
+      text-align: center;
+      font-size: 55px;
+      margin-top: 200px;
+      font-weight: bold;
+      color:  rgb(77, 77, 77);
+    }
+    h3{
+      width: 500px;
+      display: block;
+      margin: 10px 0 0 60%;
+      font-weight: bold;
+      color:  rgb(77, 77, 77);
+    }
+    h2{
+      text-align: center;
+      margin-top: 30px;
+      font-size: 35px;
+      font-weight: bold;
+      color:  rgb(77, 77, 77);
+    }
+  }
+}
+
+.article_contents{
+  width: 100vw;
+  font-family: 'Allura', cursive;
+  font-family: 'Nanum Brush Script', cursive;
+  &__recommended{
+    height: 470px;
+    padding-top: 50px;
+    &--title{
+      display: flex;
+      margin-left: 50px;
+      i{
+        margin: 10px 10px 0 0;
+      }
+    }
+    ul{
+      margin-top: 30px;
+      width: 100%;
+      li{
+        display: inline-block;
+        .popularity1{
+          @include osusume;
+          background-image: image-url("tokyo.jpg");
+        }
+        .popularity1:hover{
+          text-decoration: none;
+        }
+        .popularity2{
+          @include osusume;
+          background-image: image-url("yokohama.jpg");
+        }
+        .popularity2:hover{
+          text-decoration: none;
+        }
+        .popularity3{
+          @include osusume;
+          background-image: image-url("hokkaido.jpg");
+        }
+        .popularity3:hover{
+          text-decoration: none;
+        }
+        .popularity4{
+          @include osusume;
+          background-image: image-url("yamanashi.jpg");
+        }
+        .popularity4:hover{
+          text-decoration: none;
+        }
+      }
+    }
+    #link-btn{
+      height: 20px;
+      width: 100%;
+    }
+    &--btn {
+      display: block;
+      width: 180px;
+      text-align: center;
+      font-size: 16px;
+      color: #FFF;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 4px;
+      background-image: linear-gradient(-90deg, #709dff, #91fdb7);
+      transition: .5s;
+      background-size: 200%;
+      margin: 30px auto 0;
+    }
+    &--btn:hover {
+      background-position: right center;
+      text-decoration: none;
+    }
+  }
+  &__area{
+    padding: 0 50px 50px;
+    &--title{
+      display: flex;
+      margin-left: 50px;
+      i{
+        margin: 10px 10px 0 0;
+      }
+    }
+    &__map{
+      margin: 0 auto;
+      width: 700px;
+      &--japan{
+        height: 500px;
+        width: 100%;
+      }
+    }
+    
+  }
+  &__list{
+    padding: 50px;
+    &--title{
+      display: flex;
+      margin-left: 50px;
+      i{
+        margin-right: 10px;
+      }
+    }
+    &__new{
+      margin-top: 30px;
+      .card{
+        padding: 5px;
+        box-sizing: border-box;
+        height: 420px;
+        .card-text{
+          height: 25px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+.return_btn {
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+  transition: .4s;
+  z-index: 150;
+  font-family: 'Maven Pro', sans-serif;
+  cursor: pointer;
+  box-shadow: inset 0px 3px 0 rgba(255,255,255,0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-bottom: solid 3px #549fa9;
+}
+.return_btn:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.return_btn:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+  border-bottom: none;
+}
