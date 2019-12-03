@@ -1,0 +1,7 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .sign-up
+    %form
+      %h1.sign-up-title Sign in
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-input", placeholder: "What's your email?"
+      = f.password_field :password, autocomplete: "current-password", class: "sign-up-input", placeholder: "Choose a password"
+      = f.submit "Sign in", class: "sign-up-button"
