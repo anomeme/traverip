@@ -76,3 +76,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'active_hash'
 gem "gretel"
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
