@@ -1,0 +1,12 @@
+.choosing:focus{
+  outline: none;
+  box-shadow: 0 0 0 1px rgb(87, 188, 255);
+}
+
+.new-article{
+  height: 100vh;
+  width: 100vw;
+  &__content{
+    padding-top:70px;
+  }
+}
