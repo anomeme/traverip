@@ -1,2 +1,42 @@
-%h1 Articles#show
-%p Find me in app/views/articles/show.html.haml
+.article-show
+  .article-show__left
+    .article-show__left__heading
+      .article-show__left__heading--title
+        %p.title #{@article.title}
+      .article-show__left__heading--prefecture
+        %p.prefecture #{@article.prefecture.name}
+    .article-show__left--image
+      = image_tag (@article.image.url), class: "article-show__left--image--style"
+    .article-show__left__detail
+      .article-show__left__detail--title
+        %p.detail-title 概要
+      .article-show__left__detail--text
+        = @article.detail
+    .article-show__left__albums
+      %span.album-title> 投稿写真
+      .article-show__left__albums__box
+        - @article.pictures.each do |picture|
+          .article-show__left__albums__box--album
+            = image_tag (picture.image.url)
+    = link_to "このスポットに写真投稿", new_picture_path(@article)
+    = link_to "もっとみる", ""
+  .article-show__right
+    .article-show__right--relationtitle 関連エリア
+    .article-show__right__relation
+      %ul.article-show__right__relation
+        %li.article-show__right__relation--menu
+          = link_to "全国", root_path(anchor: 'link-btn'), class: "article-show__right__relation--menu--link"
+          %i.fas.fa-chevron-right.article-show__right__relation--menu--icon
+        %li.article-show__right__relation--menu
+          = link_to "#{@parent_prefecture.name}", prefecture_path(@parent_prefecture.id), class: "article-show__right__relation--menu--link"
+          %i.fas.fa-chevron-right.article-show__right__relation--menu--icon
+        %li.article-show__right__relation--menu
+          = link_to "#{@article.prefecture.name}", prefecture_path(@article.prefecture.id), class: "article-show__right__relation--menu--link"
+          %i.fas.fa-chevron-right.article-show__right__relation--menu--icon
+    .article-show__right__area このエリアの別の場所
+    .article-show__right__box
+      - @relation_prefectures.each do |prefecture|
+        .article-show__right__box--prefecture
+          = link_to "", article_path(prefecture.id), class:"prefecture-link"
+          = image_tag (prefecture.image.url), class:"article-show__right__box--prefecture--image"
+          %h5.article-show__right__box--prefecture--title #{prefecture.title}
