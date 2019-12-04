@@ -1,3 +1,4 @@
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
 .article-show
   .article-show__left
     .article-show__left__heading
@@ -6,7 +7,19 @@
       .article-show__left__heading--prefecture
         %p.prefecture #{@article.prefecture.name}
     .article-show__left--image
-      = image_tag (@article.image.url), class: "article-show__left--image--style"
+      .swiper-container.top-carousel
+        .swiper-wrapper
+          .swiper-slide
+            = image_tag (@article.image.url), class: "article-show__left--image--style"
+          .swiper-slide
+            = image_tag (@article.sub_image1.url), class: "article-show__left--image--style"
+          .swiper-slide
+            = image_tag (@article.sub_image2.url), class: "article-show__left--image--style"
+        .swiper-button-prev
+          %i.fas.fa-chevron-left.fa-3x
+        .swiper-button-next
+          %i.fas.fa-chevron-right.fa-3x
+        .swiper-pagination
     .article-show__left__detail
       .article-show__left__detail--title
         %p.detail-title 概要
@@ -18,8 +31,11 @@
         - @article.pictures.each do |picture|
           .article-show__left__albums__box--album
             = image_tag (picture.image.url)
-    = link_to "このスポットに写真投稿", new_picture_path(@article)
-    = link_to "もっとみる", ""
+    .article-show__left__btn
+      .article-show__left__btn__new
+        = link_to "写真を投稿", new_picture_path(@article), class:"article-show__left__btn__new--button"
+      .article-show__left__btn__show
+        = link_to "もっとみる", "", class:"article-show__left__btn__show--button"
   .article-show__right
     .article-show__right--relationtitle 関連エリア
     .article-show__right__relation
