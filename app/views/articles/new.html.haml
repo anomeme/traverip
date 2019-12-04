@@ -9,6 +9,8 @@
             = f.collection_select :prefecture_id, Spot.all, :id, :name, {}, class: "choosing"
         .new-article__content__top--image
           = f.file_field :image
+          = f.file_field :sub_image1
+          = f.file_field :sub_image2
       .new-article__content__bottom
         .new-article__content__bottom--detail
           = f.text_area :detail, class: "choosing",  rows: "5"
