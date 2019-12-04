@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   # before_action :authenticate_user!, except: :index
-  before_action :set_article, only:[:show, :edit, :update, :destroy]
+  before_action :set_article, only:[:show, :edit, :update]
   
   def index
     @articles = Article.includes(:prefecture).page(params[:page]).per(9).order("created_at DESC")
@@ -37,8 +37,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    redirect_to root_path, notice: "削除完了"
+    if article = Article.find_by(id: params[:id])
+      article.destroy
+    end
+    redirect_to root_path
   end
 
 
@@ -49,6 +51,8 @@ class ArticlesController < ApplicationController
       :title,
       :detail,
       :image,
+      :sub_image1,
+      :sub_image2,
       :prefecture_id
     )
   end
