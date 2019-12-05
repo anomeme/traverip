@@ -1,14 +1,8 @@
 class PicturesController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :set_picture, only:[:edit, :update, :destroy]
   
   def index
     @pictures = Picture.order("created_at DESC")
-  end
-  
-  def new
-    @picture = Picture.new
-    @article = Article.find_by(id: params[:format])
   end
 
   def create
@@ -21,6 +15,7 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to root_path, notice: "削除完了"
   end
@@ -30,8 +25,5 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:title, :image, :article_id).merge(user_id: current_user.id)
   end
-
-  def set_picture
-    @picture = Picture.find(params[:id])
-  end
+  
 end

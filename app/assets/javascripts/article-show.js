@@ -1,5 +1,5 @@
 $(function(){
-  $(document).on('turbolinks:load', function() { 
+  $(document).on('turbolinks:load', function() {
     var mySwiper = new Swiper('.swiper-container', {
       effect: 'fade',
       autoHeight: true,
