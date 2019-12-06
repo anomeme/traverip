@@ -97,7 +97,7 @@ $btn-color: rgb(102, 146, 222);
       height: 600px;
       width: 100%;
       margin-top: 50px;
-      padding: 30px;
+      padding: 30px 10px;
       position:relative;
       color: #555555; /* 文字色 */
       background-color: #e8ddbd;
@@ -284,11 +284,11 @@ $btn-color: rgb(102, 146, 222);
       padding: 0 20px;
       height: 1020px;
       overflow: scroll;
-      &--spot{
+      &--prefecture{
         margin: 30px 0;
         width: 100%;
         position: relative;
-        .spot-link{
+        .prefecture-link{
           display: block;
           height: 250px;
           width: 300px;

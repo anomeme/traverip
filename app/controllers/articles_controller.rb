@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @picture = Picture.new
     @relation_prefectures = Article.where(prefecture: @article.prefecture).where('id != ?', @article.id).order("created_at DESC")
     @parent_prefecture = Prefecture.find(@article.prefecture.parent_id)
   end

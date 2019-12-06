@@ -39,11 +39,11 @@
     }
   }
   &__contents{
-    height: 300px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     &--card{
-      margin: 0 8px;
+      margin: 10px 8px;
       padding: 5px 5px 0;
       cursor: pointer;
       position: relative;

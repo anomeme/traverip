@@ -27,14 +27,14 @@
     .article-show__left__albums
       %span.album-title> 投稿写真
       .article-show__left__albums__box
-        - @article.pictures.each do |picture|
+        - @article.pictures.reverse.first(8).each do |picture|
           .article-show__left__albums__box--album
             = image_tag (picture.image.url)
     .article-show__left__btn
       .article-show__left__btn__new
-        = link_to "写真を投稿", new_picture_path(@article), class:"article-show__left__btn__new--button"
+        %button.article-show__left__btn__new--button#post-btn 写真を投稿
       .article-show__left__btn__show
-        = link_to "もっとみる", "", class:"article-show__left__btn__show--button"
+        = link_to "もっとみる", picture_path(@article.id), class:"article-show__left__btn__show--button"
   .article-show__right
     .article-show__right--relationtitle 関連エリア
     .article-show__right__relation
@@ -55,3 +55,55 @@
           = link_to "", article_path(prefecture.id), class:"prefecture-link"
           = image_tag (prefecture.image.url), class:"article-show__right__box--prefecture--image"
           %h5.article-show__right__box--prefecture--title #{prefecture.title}
+.gray_panel#gray_panel
+%link{href: "https://fonts.googleapis.com/css?family=Righteous&display=swap", rel: "stylesheet"}
+= form_with model: @picture, local: true do |f|
+  .picture-body{style:"display: none;"}
+    .picture-body__left
+      .picture-body__left--required 必須
+      .picture-body__left--image
+        %label.image-group
+          .image-icon
+            %i.far.fa-image.fa-4x
+          %p.image-text 
+            Post photos by 
+            %br 
+            drag and drop or clickg
+          = f.file_field :image, id: "myfile"
+          .change_btn Change photo
+          %img#img
+      .picture-body__left--error ※写真がありません
+    .picture-body__right
+      .picture-body__right--title
+        = @article.title
+      .picture-body__right--prefecture
+        = @article.prefecture.name
+      .picture-body__right--text
+        = f.text_area :title, class: "picture-body__right--text--form choosing",  rows: "5"
+      .picture-body__right--btn
+        .picture-body__right--btn--cancel Cancel
+        = f.hidden_field :article_id, value: "#{@article.id}"
+        = f.submit "Send", class:"picture-body__right--btn--send"
+
+:javascript
+  $(function(){
+    var mySwiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      autoHeight: true,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        reverseDirection: false
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  });

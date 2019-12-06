@@ -128,3 +128,9 @@ body{
   margin-top: 70px;
   background-image: image-url("bg-image.jpeg");
 }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

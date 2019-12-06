@@ -6,7 +6,7 @@
       .prefecture_show__name
         %h3 #{prefecture.name}
       .prefecture_show__contents
-        - prefecture.articles.last(4).each do |article|
+        - prefecture.articles.last(6).each do |article|
           .card.shadow-sm.prefecture_show__contents--card
             = link_to "", article_path(article.id), method: :get, class: "prefecture_show__contents--card--link"
             %img.prefecture_show__contents--card--image{src: "#{article.image.url}"}

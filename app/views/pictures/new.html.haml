@@ -1,2 +1,10 @@
-%h1 Pictures#new
-%p Find me in app/views/pictures/new.html.haml
+= form_with model: @picture, local: true do |f|
+  .pucture-body
+    .picture-new.container
+      .picture-new__picture
+        = f.file_field :image
+      .picture-new__title
+        = f.text_area :title, class: "choosing",  rows: "5"
+      .picture-new__send
+        = f.hidden_field :article_id, value: "#{@article.id}"
+        = f.submit

@@ -1,0 +1,206 @@
+@mixin btn($color:#fff){
+  display: block;
+  padding: 0.6em 0.88em;
+  background: linear-gradient(to right, $color 50%, #fff 50%);
+  background-size: 200% 100.5%;
+  background-position: right bottom;
+  color: #020202;
+  border: none;
+  border-left: 0.5em solid $color;
+  border-color: none;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s ease-out;
+  line-height: 20px;
+  width: 150px;
+  font-size: 17px;
+  font-family: 'Satisfy', cursive;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin btn-hover{
+  background-position: left bottom;
+  color: white;
+}
+
+.picture-body{
+  border: 2px dotted #EAA8BF;	/* 線の太さ・種類・色 */
+  margin: 30px 20px;	/* 外側の余白 上下・左右 */
+  padding: 15px 20px;	/* 内側の余白 上下・左右 */
+  position: relative;
+  display: flex;
+  height: 500px;
+  width: 900px;
+  background-color: rgba(255, 225, 255, 0.9);
+  opacity: 0.95;
+  &__left{
+    width: 50%;
+    padding: 40px 60px 50px 80px; 
+    &--required{
+      display: block;
+      line-height: 15px;
+      width: 50px;
+      text-align: center;
+      font-size: 14px;
+      background-color: rgb(249, 71, 71);
+      color: #fff;
+      padding: 3px 5px;
+      border-radius: 5px;
+    }
+    &--image{
+      margin-top: 10px;
+      .image-group{
+        position: relative;
+        .image-icon{
+          position: absolute;
+          height: 320px;
+          width: 320px;
+          background-color: #fff;
+          z-index: 2;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          text-align: center;
+          i{
+            line-height: 240px;
+          }
+        }
+        .image-text{
+          position: absolute;
+          top: 160px;
+          left: 0px;
+          z-index: 3;
+          width: 320px;
+          text-align: center;
+          pointer-events: none;
+        }
+        #myfile{
+          position: absolute;
+          height: 320px;
+          width: 320px;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          cursor: pointer;
+        }
+        .change_btn{
+          visibility: hidden;
+          position: absolute;
+          top: 340px;
+          left: 80px;
+          @include btn($color: rgb(80, 255, 144));
+        }
+        .change_btn:hover{
+          @include btn-hover;
+        }
+        #img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 320px;
+          width: 320px;
+          visibility: hidden;
+          z-index: 3;
+        }
+      }
+    }
+    &--error{
+      height: 20px;
+      width: 100%;
+      color: red;
+      margin-top: 310px;
+      visibility: hidden;
+    }
+  }
+  &__right{
+    width: 50%;
+    padding: 40px 30px;
+    &--title{
+      position: relative;
+      line-height: 40px;
+      font-size: 25px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    &--title:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 7px;
+      background: -webkit-repeating-linear-gradient(-45deg, #7fb7e8, #7fb7e8 2px, #fff 2px, #fff 4px);
+      background: repeating-linear-gradient(-45deg, #7fb7e8, #7fb7e8 2px, #fff 2px, #fff 4px);
+    }
+    &--prefecture{
+      line-height: 40px;
+      font-size: 20px;
+      width: 100%;
+    }
+    &--text{
+      margin-top: 15px;
+      &--form{
+        height: 256px;
+        width: 350px;
+        padding: 5px;
+      }
+    }
+    &--btn{
+      display: flex;
+      margin-top: 13px;
+      &--cancel{
+        @include btn($color: #e66465);
+      }
+      &--cancel:hover{
+        @include btn-hover;
+      }
+      &--send{
+        @include btn($color: #72a8ea);
+        margin-left: 50px;
+      }
+      &--send:hover{
+        @include btn-hover;
+      }
+    }
+  }
+}
+.picture-body:before{
+  content: '＊';
+  color: #fff;	/* 左上の花の色 */
+  font-size: 50px;	/* 左上の花のサイズ */
+  font-weight: bold; 
+  position: absolute;
+  top: -38px;
+  left: -25px;
+  transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg); 
+  -o-transform: rotate(20deg);
+  text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf;	/* 左上の花の縁取りの色 */
+}
+.picture-body:after{
+  content: '*';
+  color: #fff;	/* 右下の花の色 */
+  font-size: 50px;	/* 右下の花のサイズ */
+  font-weight: bold; 
+  position: absolute;
+  bottom: -45px;
+  right: -15px;
+  transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg); 
+  -o-transform: rotate(20deg);
+  text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf;	/* 右下の花の縁取りの色 */
+}
+
+.gray_panel{
+  background : #000;
+  opacity  : 0.5;
+  width  : 100%;
+  height  : 99999px;
+  position : fixed;
+  top   : 0;
+  left  : 0;
+  display  : none;
+  z-index  : 50;
+}
