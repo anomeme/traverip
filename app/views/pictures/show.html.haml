@@ -1,2 +1,45 @@
-%h1 Pictures#show
-%p Find me in app/views/pictures/show.html.haml
+.picture-show.clearfix
+  .picture-show__left
+    .picture-show__left__image
+      - @pictures.each do |picture|
+        %img{src: "#{picture.image.url}", class: "picture-image", id:"#{picture.id}"}
+      %button.picture-btn#post-btn 写真を投稿
+    .paginate
+      = paginate @pictures
+  .picture-show__right
+    .picture-show__right--detail
+      .picture-show__right--detail--text 画像クリックで詳細表示
+      #main-image
+    .picture-show__right__form
+.gray_panel#gray_panel
+%link{href: "https://fonts.googleapis.com/css?family=Righteous&display=swap", rel: "stylesheet"}
+= form_with model: @picture, local: true do |f|
+  .picture-body{style:"display: none;"}
+    .picture-body__left
+      .picture-body__left--required 必須
+      .picture-body__left--image
+        %label.image-group
+          .image-icon
+            %i.far.fa-image.fa-4x
+          %p.image-text 
+            Post photos by 
+            %br 
+            drag and drop or clickg
+          = f.file_field :image, id: "myfile"
+          .change_btn Change photo
+          %img#img
+      .picture-body__left--error ※写真がありません
+    .picture-body__right
+      .picture-body__right--title
+        = @article.title
+      .picture-body__right--prefecture
+        = @article.prefecture.name
+      .picture-body__right--text
+        = f.text_area :title, class: "picture-body__right--text--form choosing",  rows: "5"
+      .picture-body__right--btn
+        .picture-body__right--btn--cancel Cancel
+        = f.hidden_field :article_id, value: "#{@article.id}"
+        = f.submit "Send", class:"picture-body__right--btn--send"
+
+
+

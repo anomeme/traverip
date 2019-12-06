@@ -40,7 +40,7 @@
       - @articles.each do |article|
         .col-md-4
           .card.mb-4.shadow-sm
-            %img{:src => "#{article.image.url}"}
+            %img{src: "#{article.image.url}"}
             .card-body
               %p.card-text
                 = article.title
@@ -53,6 +53,15 @@
                   = article.prefecture.name
     .row
       = paginate(@articles)
+.animation
+  .loader
+    .loader--dot
+    .loader--dot
+    .loader--dot
+    .loader--dot
+    .loader--dot
+    .loader--dot
+    .loader--text
 .return_btn TOP
 
 %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}

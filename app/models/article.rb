@@ -4,5 +4,5 @@ class Article < ApplicationRecord
   mount_uploader :sub_image1, ImageUploader
   mount_uploader :sub_image2, ImageUploader
   belongs_to :prefecture
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 end
