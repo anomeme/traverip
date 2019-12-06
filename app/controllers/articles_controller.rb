@@ -3,9 +3,23 @@ class ArticlesController < ApplicationController
   before_action :set_article, only:[:show, :edit, :update]
   
   def index
-    @articles = Article.includes(:prefecture).page(params[:page]).per(9).order("created_at DESC")
+    @articles = Article.includes(:prefecture).order("created_at DESC")
     @prefectures = Prefecture.all
   end
+
+  def list
+    @articles = Article.includes(:prefecture).order("created_at DESC").page(params[:page]).per(15)
+  end
+
+  def list_search
+    @spot_id = "#{params[:spot_id]}"
+    if (@spot_id != "1") && (@spot_id != "47") && (@spot_id != "48") && (@spot_id != "49") && (@spot_id != "50") && (@spot_id != "51") && (@spot_id != "52") && (@spot_id != "53") && (@spot_id != "54") && (@spot_id != "55")
+      @search_articles = Article.where(prefecture_id: @spot_id)
+    else
+      @spots = Prefecture.where(parent_id: @spot_id)
+      @search_articles = Article.where(prefecture_id: @spots)
+    end
+  end  
 
   def show
     @picture = Picture.new

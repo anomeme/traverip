@@ -37,7 +37,7 @@
       %i.fab.fa-font-awesome-flag.fa-2x
       %h3 新着記事
     .article_contents__list__new.row
-      - @articles.each do |article|
+      - @articles.first(9).each do |article|
         .col-md-4
           .card.mb-4.shadow-sm
             %img{src: "#{article.image.url}"}
@@ -51,17 +51,16 @@
                   = link_to "Delete", article_path(article.id), method: :delete, class: "btn btn-sm btn-outline-secondary"
                 %small.text-muted
                   = article.prefecture.name
-    .row
-      = paginate(@articles)
 .animation
-  .loader
-    .loader--dot
-    .loader--dot
-    .loader--dot
-    .loader--dot
-    .loader--dot
-    .loader--dot
-    .loader--text
+  = link_to list_articles_path do
+    .loader
+      .loader--dot
+      .loader--dot
+      .loader--dot
+      .loader--dot
+      .loader--dot
+      .loader--dot
+      .loader--text
 .return_btn TOP
 
 %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}

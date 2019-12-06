@@ -1,0 +1,185 @@
+.article-list{
+  min-height: 100vh;
+  width: 100vw;
+  padding: 100px 150px 50px;
+  &__box{
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 30px rgba(black, .2);
+    background: lighten(#f0f4c3, 10%);
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    .wave {
+      opacity: 0.3;
+      position: absolute;
+      top: 3%;
+      left: 37%;
+      background: #0af;
+      width: 800px;
+      height: 900px;
+      margin-left: -250px;
+      margin-top: -250px;
+      transform-origin: 50% 48%;
+      border-radius: 43%;
+      animation: drift 20000ms infinite linear;
+    }
+    .wave.-three {
+      animation: drift 30000ms infinite linear;
+    }
+    .wave.-two {
+      animation: drift 40000ms infinite linear;
+      opacity: 0.3;
+      background: rgb(0, 255, 102);
+    }
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      from { transform: rotate(360deg); }
+    }
+  }
+  &__contents{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 30px;
+    .article-card{
+      margin-top: 40px;
+      .image{
+        padding: 5px;
+        height: 300px;
+      }
+      .card-body{
+        width: 100%;
+        padding: 10px;
+        color: #333;
+        &__info{
+          display: flex;
+          width: 100%;
+          margin:5px;
+          &--title{
+            line-height: 20px;
+            width: 70%;
+          }
+          &--prefecture{
+            line-height: 20px;
+            width: 30%;
+            text-align: center;
+            font-size: 14px;
+            color: rgb(125, 125, 125);
+          }
+        }
+        &--detail{
+          height: 70px;
+          overflow: hidden;
+          &--text{
+            line-height: 1.8;
+            overflow: hidden;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .article-card:hover{
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
+
+@mixin select{
+  position: absolute;
+  margin-left: 20px;
+  .choose {
+    color: #555;
+    padding: 5px 0 10px;
+    display: inherit;
+    text-align: center;
+  }
+  .dropdown {
+    width: 300px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgb(204, 204, 204);
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: #474747;
+    text-align: left;
+    border:0px;
+    outline:0px;
+  }
+  .dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding: 10px
+  }
+  .dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+  }
+  .dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+  }
+  .dropdown:active {
+    background-color: #f8f8f8
+  }
+  .dropdown.active:hover,
+  .dropdown.active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 5px 5px 0 0;
+    background-color: #f8f8f8
+  }
+  .dropdown.active .select > i {
+    transform: rotate(-90deg)
+  }
+  .dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 5px 5px;
+    overflow: hidden;
+    display: none;
+    overflow-y: auto;
+  }
+  .dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+  } 
+  .dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none;
+  }
+  .dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2;
+  }
+  .dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2;
+  }
+}
+
+
+.article-list__choice{
+  position: relative;
+  .article-list__choice__form1 {
+    @include select;
+    top: -90px;
+    left: 210px;
+  }
+  .article-list__choice__form2 {
+    @include select;
+    top: -90px;
+    left: 600px;
+    visibility: hidden;
+  }
+}
+
