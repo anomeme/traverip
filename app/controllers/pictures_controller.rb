@@ -5,10 +5,25 @@ class PicturesController < ApplicationController
     @pictures = Picture.order("created_at DESC")
   end
 
+  def show
+    @picture = Picture.new
+    @article = Article.find(params[:id])
+    @pictures = Picture.where(article_id: params[:id]).order("created_at DESC").page(params[:page]).per(8)
+  end
+
+  def main_image
+    @main_image = Picture.find("#{params[:image_id]}")
+  end
+
   def create
+    url = request.referer
     @picture = Picture.create(picture_params)
     if @picture.save
-      redirect_to article_path(id: @picture.article_id)
+      if url.include?("picture")
+        redirect_to picture_path(id: @picture.article_id)
+      else
+        redirect_to article_path(id: @picture.article_id)
+      end
     else
       render "new"
     end
@@ -25,5 +40,5 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:title, :image, :article_id).merge(user_id: current_user.id)
   end
-  
+
 end
