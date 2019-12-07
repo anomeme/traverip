@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to root_path, notice: "削除完了"
+    redirect_to user_path(id: current_user.id), notice: "削除完了"
   end
 
 
