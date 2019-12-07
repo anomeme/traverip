@@ -1,2 +1,48 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+.user_show
+  .user_show__form
+    .user_show__form__info
+      .user_show__form__info--avatar
+        = image_tag 'avatar.png', class: "user_show__form__info--avatar--image"
+      .user_show__form__info--name
+        = @user.name
+    .user_show__form__profile
+      .user_show__form__profile--text
+        ここにプロフィールが入ります。
+        後ほど編集ができるようにします。
+      .user_show__form__profile--edit
+        .btn-multi
+          %input#multi-btn{name: "multi-btn", type: "checkbox"}
+          %label.btn-list{for: "multi-btn"}
+            %a.btn.btn-circle{href: "/users/#{@user.id}/edit"}
+              %i.fas.fa-user-cog.icon{"aria-hidden" => "true"}
+            %a.btn.btn-circle{href: "/users/sign_out", data:{method: "delete"}}
+              %i.fas.fa-sign-out-alt.icon{"aria-hidden" => "true"}
+            %a.btn.btn-circle{href: ""}
+              %i.fas.fa-star.icon{"aria-hidden" => "true"}
+            %span.btn.btn-circle
+              %i.fas.fa-times.icon
+            %i.fas.fa-cog.icon.choice-icon
+  .user_show__contents
+    .user_show__contents--title Post photos -Number of posts #{@user.pictures.length}-
+    .user_show__contents--photo
+      - @user.pictures.reverse.each do |picture|
+        .user_show__contents--photo--box
+          = image_tag "#{picture.image.url}", class:"user_show__contents--photo--box--image", id: "#{picture.id}"
+          #text-none{style:"display: none;"}
+            = picture.title
+          #date-none{style:"display: none;"}
+            = picture.created_at
+.gray_panel#gray_panel
+.user_picture{style:"display: none;"}
+  .user_picture--image
+  .user_picture__menu
+    .user_picture__menu--list
+      %label#p_return
+        %i.fas.fa-undo-alt{style:"margin: 6px 10px 0 0"}
+        .return Return
+      %label#p_edit
+        %i.fas.fa-edit{style:"margin: 6px 10px 0 0"}
+        = link_to "Edit", ""
+      %label#p_delete
+  .user_picture--text
+  .user_picture--date
