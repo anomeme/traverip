@@ -31,7 +31,7 @@
           #text-none{style:"display: none;"}
             = picture.title
           #date-none{style:"display: none;"}
-            = picture.created_at
+            = picture.created_at.strftime('%Y年%m月%d日 %H:%m')
 .gray_panel#gray_panel
 .user_picture{style:"display: none;"}
   .user_picture--image

@@ -1,0 +1,28 @@
+.article-list
+  .article-list__contents
+    - @articles.each do |article|
+      = link_to article_path(article.id), class: "col-md-12 article-card" do
+        .card.mb-12.shadow-sm.search_list
+          %img.search_list--image{src: "#{article.image.url}"}
+          .search_list__title
+            .search_list__title--name
+              = article.title
+            .search_list__title--prefecture
+              = article.prefecture.name
+          .search_list--detail
+            = article.detail
+          .search_list--date
+            = article.created_at.strftime('%Y年%m月%d日 %H:%m')
+    .paginate
+      = paginate @articles
+.return_btn TOP
+= link_to "ALL", list_articles_path, class:"list_btn"
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}
+:javascript
+  $(function(){
+    var pagetop = $('.return_btn');
+    pagetop.click(function () {
+    $('body, html').animate({ scrollTop: 0 }, 500);
+      return false;
+    });
+  });

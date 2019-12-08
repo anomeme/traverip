@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'list'
       get 'list_search', defaults: { format: 'json' }
+      get 'search'
     end
   end
   resources :pictures do
