@@ -1,3 +1,37 @@
+.article__search {
+  font-family: 'Noto Sans JP', sans-serif;
+  height: 100px;
+  position: relative;
+  margin: 2em auto;
+  padding: 15px 35px 15px 25px;
+  width: 90%; /* ボックス幅 */
+  background-color: #FFE4E1; /* ボックス背景色 */
+  color: #666666; /* 文章色 */
+  box-shadow: 4px 4px 1px #FFB6C1; /* 影の色 */
+}
+.article__search::before {
+  position: absolute;
+  content: '';
+  top: -15px;
+  right: 10px;
+  height: 55px;
+  width: 15px;
+  border: 3px solid #C0C0C0; /*クリップ色 */
+  background-color: none;
+  border-radius: 12px;
+  box-shadow: 1px 1px 2px #ccc; /*クリップ影*/
+  transform: rotate(10deg);
+  z-index: 1;
+}
+.article__search::after {
+  position: absolute;
+  content: '';
+  top: 0px;
+  width: 10px; 
+  right: 20px;
+  border: solid 5px #FFE4E1; /*背景色と同じ色に！*/
+  z-index: 2;
+}
 .search_list{
   position: relative;
   &--image{
@@ -83,3 +117,4 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
   border-bottom: none;
 }
+

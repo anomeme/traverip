@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_search
   def set_search
     words = params[:q].delete(:title_or_detail_cont) if params[:q].present?
+    @word = words
     if words.present?
       params[:q][:groupings] = []
       words.split(/[ 　]/).each_with_index do |word, i|

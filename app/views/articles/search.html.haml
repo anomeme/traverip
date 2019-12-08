@@ -1,5 +1,8 @@
 .article-list
   .article-list__contents
+    .article__search
+      %h3 検索ワード「#{@word}」
+      %p 検索結果#{@articles.length}件
     - @articles.each do |article|
       = link_to article_path(article.id), class: "col-md-12 article-card" do
         .card.mb-12.shadow-sm.search_list
