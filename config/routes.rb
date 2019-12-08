@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'articles#index'
-  resources :users, only:[:show, :edit]
+  resources :users
   resources :articles do
     collection do
       get 'list'

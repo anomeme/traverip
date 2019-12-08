@@ -47,5 +47,23 @@ $(function(){
       $("body").css("overflow", "scroll");
     });
 
+    $('#user_edit_btn').off('click');
+    $('#user_edit_btn').on('click', function(){
+      var left_positon = ($("body").width()/3)-($(".user_edit__form").width()/3)
+      $("body").css("overflow", "hidden");
+      $( "#gray_panel" ).fadeIn("slow");
+      $( ".user_edit__form" )
+      .css("z-index","51")
+      .css("position", "fixed")
+      .css("top", 90)
+      .css("left", left_positon)
+      .fadeIn(600);
+      $(document).on("click", ".cancel", function () {
+        $( "#gray_panel" ).fadeOut("slow");
+        $( ".user_edit__form" ).fadeOut("slow");
+        $("body").css("overflow", "scroll");
+      });
+    });
+
   });
 });

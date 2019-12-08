@@ -2,26 +2,36 @@
   .user_show__form
     .user_show__form__info
       .user_show__form__info--avatar
-        = image_tag 'avatar.png', class: "user_show__form__info--avatar--image"
+        - if @user.avatar.blank?
+          = image_tag 'avatar.png', class: "user_show__form__info--avatar--image"
+        -else
+          = image_tag "#{@user.avatar.url}", class: "user_show__form__info--avatar--image"
       .user_show__form__info--name
         = @user.name
     .user_show__form__profile
-      .user_show__form__profile--text
-        ここにプロフィールが入ります。
-        後ほど編集ができるようにします。
-      .user_show__form__profile--edit
-        .btn-multi
-          %input#multi-btn{name: "multi-btn", type: "checkbox"}
-          %label.btn-list{for: "multi-btn"}
-            %a.btn.btn-circle{href: "/users/#{@user.id}/edit"}
-              %i.fas.fa-user-cog.icon{"aria-hidden" => "true"}
-            %a.btn.btn-circle{href: "/users/sign_out", data:{method: "delete"}}
-              %i.fas.fa-sign-out-alt.icon{"aria-hidden" => "true"}
-            %a.btn.btn-circle{href: ""}
-              %i.fas.fa-star.icon{"aria-hidden" => "true"}
-            %span.btn.btn-circle
-              %i.fas.fa-times.icon
-            %i.fas.fa-cog.icon.choice-icon
+      - if @user.profile.blank?
+        .user_show__form__profile--text
+          %p.user_show__form__profile--text--none
+            自己紹介を入力してみましょう！
+            %br
+            例）こんにちは
+      - else
+        .user_show__form__profile--text
+          = simple_format(@user.profile)
+      -if @user.id == current_user.id
+        .user_show__form__profile--edit
+          .btn-multi
+            %input#multi-btn{name: "multi-btn", type: "checkbox"}
+            %label.btn-list{for: "multi-btn"}
+              %a.btn.btn-circle#user_edit_btn
+                %i.fas.fa-user-cog.icon{"aria-hidden" => "true"}
+              %a.btn.btn-circle{href: "/users/sign_out", data:{method: "delete"}}
+                %i.fas.fa-sign-out-alt.icon{"aria-hidden" => "true"}
+              %a.btn.btn-circle{href: ""}
+                %i.fas.fa-star.icon{"aria-hidden" => "true"}
+              %span.btn.btn-circle
+                %i.fas.fa-times.icon
+              %i.fas.fa-cog.icon.choice-icon
   .user_show__contents
     .user_show__contents--title Post photos -Number of posts #{@user.pictures.length}-
     .user_show__contents--photo
@@ -32,6 +42,30 @@
             = picture.title
           #date-none{style:"display: none;"}
             = picture.created_at.strftime('%Y年%m月%d日 %H:%m')
+  = form_with model: @user do |f|
+    .user_edit__form{style:"display: none;"}
+      .user_edit__form__info
+        .user_edit__form__info--avatar
+          - if @user.avatar.blank?
+            %label
+              = image_tag 'avatar.png', class: "user_edit__form__info--avatar--image"
+              = f.file_field :avatar, class: "user_edit__form__info--avatar--file", id:"post"
+              #show
+              .image-icon.fas.fa-plus-circle.fa-3x
+          - else
+            %label
+              = image_tag "#{@user.avatar.url}", class: "user_edit__form__info--avatar--image"
+              = f.file_field :avatar, class: "user_edit__form__info--avatar--file", id:"post"
+              #show
+              .image-icon.fas.fa-plus-circle.fa-3x
+        .user_edit__form__info--name
+          = @user.name
+      .user_edit__form__profile
+        .user_edit__form__profile--text
+          = f.text_area :profile
+        .user_edit__form__profile--send
+          = f.submit "更新する", class:"user_update"
+        .user_update.cancel 戻る
 .gray_panel#gray_panel
 .user_picture{style:"display: none;"}
   .user_picture--image
@@ -46,3 +80,20 @@
       %label#p_delete
   .user_picture--text
   .user_picture--date
+
+%script{:src => "https://code.jquery.com/jquery-3.0.0.min.js"}
+:javascript
+  $(function(){
+    $('#post').change(function(){
+      $('img').remove();
+      var file = $(this).prop('files')[0];
+      if(!file.type.match('image.*')){
+        return;
+      }
+      var fileReader = new FileReader();
+      fileReader.onloadend = function() {
+        $('#show').html('<img src="' + fileReader.result + '"/>');
+      }
+      fileReader.readAsDataURL(file);
+    });
+  });
