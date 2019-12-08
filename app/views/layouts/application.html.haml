@@ -18,35 +18,28 @@
     %link{href: "https://fonts.googleapis.com/css?family=Kaushan+Script|M+PLUS+1p&display=swap", rel: "stylesheet"}
 
   %body
-    .header.shadow-sm
-      - if user_signed_in?
-        .header__search
-          %input.header__search--input{placeholder: "Search to articles", type: "text"}
-        .header__title
-          = link_to root_path, class: "header__title__link" do
-            %text Traverip
-            %i.fa.fa-paper-plane.fa-2x
-            %p.header__title__link--sub Enjoy your trip!
-        .header__mypage
-          = link_to "Mypage", user_path(current_user.id), class: "header-btn"
-        .header__favorite
-          = link_to "Favorite", new_article_path, class: "header-btn"
-        .header__signout
-          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-btn"
-      - else
-        .header__search
-          %input.header__search--input{placeholder: "Search to articles", type: "text"}
-        .header__title
-          = link_to root_path, class: "header__title__link" do
-            %text Traverip
-            %i.fa.fa-paper-plane.fa-2x
-            %p.header__title__link--sub Journey to the heart
-        .header__signin
-          = link_to 'Sign in', new_user_session_path, class: "header-btn"
-        .header__signup
-          = link_to 'Sign up', new_user_registration_path, class: "header-btn"
-
-    = yield
+  .header.shadow-sm
+    .header__search
+      = search_form_for @q, url: search_articles_path do |f|
+        = f.text_field :title_or_detail_cont, class: "header__search--input", placeholder: "Search to articles", type: "text"
+    .header__title
+      = link_to root_path, class: "header__title__link" do
+        %text Traverip
+        %i.fa.fa-paper-plane.fa-2x
+        %p.header__title__link--sub Enjoy your trip!
+    - if user_signed_in?
+      .header__mypage
+        = link_to "Mypage", user_path(current_user.id), class: "header-btn"
+      .header__favorite
+        = link_to "Favorite", new_article_path, class: "header-btn"
+      .header__signout
+        = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-btn"
+    - else
+      .header__signin
+        = link_to 'Sign in', new_user_session_path, class: "header-btn"
+      .header__signup
+        = link_to 'Sign up', new_user_registration_path, class: "header-btn"
+  = yield
   .footer
     .footer__contents.container
       .footer__contents--link

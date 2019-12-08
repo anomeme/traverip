@@ -58,7 +58,6 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def article_params
@@ -75,4 +74,5 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
+
 end

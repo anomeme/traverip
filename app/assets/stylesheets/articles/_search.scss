@@ -1,0 +1,85 @@
+.search_list{
+  position: relative;
+  &--image{
+    height: 300px;
+    width: 350px;
+    margin: 5px;
+  }
+  &__title{
+    position: absolute;
+    height: 50px;
+    width: calc(100% - 360px);
+    top: 5px;
+    right: 5px;
+    padding: 5px 20px;
+    display: flex;
+    &--name{
+      font-size: 25px;
+      width: 70%;
+      line-height: 40px;
+      color: #333;
+      border-bottom: 1px solid rgb(208, 208, 208);
+    }
+    &--prefecture{
+      width: 30%;
+      line-height: 50px;
+      color: rgb(140, 140, 140);
+      border-bottom: 1px solid rgb(208, 208, 208);
+    }
+  }
+  &--detail{
+    position: absolute;
+    top: 55px;
+    right: 5px;
+    height: 200px;
+    width: calc(100% - 360px);
+    padding: 10px 20px;
+    color: #333;
+  }
+  &--date{
+    position: absolute;
+    top: 260px;
+    right: 5px;
+    width: calc(100% - 360px);
+    line-height: 45px;
+    color: #333;
+    padding-right: 10px;
+    text-align: right;
+  }
+}
+
+.list_btn {
+  bottom: 110px;
+  right: 32px;
+  position: fixed;
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #b070ff 0%, #c291fd 100%);
+  transition: .4s;
+  z-index: 150;
+  font-family: 'Maven Pro', sans-serif;
+  cursor: pointer;
+  box-shadow: inset 0px 3px 0 rgba(255,255,255,0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-bottom: solid 3px #8654a9;
+}
+.list_btn:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  text-decoration: none;
+  color: #FFF;
+}
+
+.list_btn:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+  border-bottom: none;
+}
