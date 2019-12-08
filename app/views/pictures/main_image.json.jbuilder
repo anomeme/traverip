@@ -1,6 +1,7 @@
 json.id @main_image.id
 json.user_id @main_image.user.id
 json.user_name @main_image.user.name
+json.user_avatar @main_image.user.avatar.url
 json.article_title @main_image.article.title
 json.title @main_image.title
 json.image @main_image.image.url
