@@ -14,9 +14,11 @@
  @import "bootstrap"; 
  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500); 
  @import "sheard/header-footer";
+ @import "articles/index";
  @import "users/signin-out";
  @import "users/show";
  @import "users/edit";
+ @import "users/favorite";
  @import "articles/index";
  @import "articles/spot";
  @import "articles/list";

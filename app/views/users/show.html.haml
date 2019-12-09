@@ -31,7 +31,7 @@
                 %i.fas.fa-user-cog.icon{"aria-hidden" => "true"}
               %a.btn.btn-circle{href: "/users/sign_out", data:{method: "delete"}}
                 %i.fas.fa-sign-out-alt.icon{"aria-hidden" => "true"}
-              %a.btn.btn-circle{href: ""}
+              %a.btn.btn-circle{href: "/users/#{current_user.id}/favorite"}
                 %i.fas.fa-star.icon{"aria-hidden" => "true"}
               %span.btn.btn-circle
                 %i.fas.fa-times.icon
@@ -80,7 +80,7 @@
         .return Return
       %label#p_edit
         %i.fas.fa-edit{style:"margin: 6px 10px 0 0"}
-        = link_to "Edit", ""
+        = link_to "Edit", "#"
       %label#p_delete
   .user_picture--text
   .user_picture--date

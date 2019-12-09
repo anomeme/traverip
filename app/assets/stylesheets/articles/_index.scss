@@ -81,7 +81,6 @@
 
 .article_contents{
   width: 100vw;
-  font-family: 'Allura', cursive;
   font-family: 'Nanum Brush Script', cursive;
   &__recommended{
     height: 470px;
@@ -180,19 +179,8 @@
         margin-right: 10px;
       }
     }
-    &__new{
-      margin-top: 30px;
-      .card{
-        padding: 5px;
-        box-sizing: border-box;
-        height: 420px;
-        .card-text{
-          height: 25px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-      }
+    .article-list__contents{
+      font-family: 'Maven Pro', sans-serif;
     }
   }
 }
@@ -213,7 +201,6 @@
 }
 .animation {
   width: 300px;
-  font-family: Helvetica;
   position: relative;
   margin: 0 auto;
   text-align: center;

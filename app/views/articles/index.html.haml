@@ -36,21 +36,19 @@
     .article_contents__list--title
       %i.fab.fa-font-awesome-flag.fa-2x
       %h3 新着記事
-    .article_contents__list__new.row
+    .article-list__contents
       - @articles.first(9).each do |article|
-        .col-md-4
+        = link_to article_path(article.id), class: "col-md-4 article-card" do
           .card.mb-4.shadow-sm
-            %img{src: "#{article.image.url}"}
+            %img.image{src: "#{article.image.url}"}
             .card-body
-              %p.card-text
-                = article.title
-              .d-flex.justify-content-between.align-items-center
-                .btn-group
-                  = link_to "view", article_path(article.id), class: "btn btn-sm btn-outline-secondary"
-                  = link_to "Edit", edit_article_path(article.id), class: "btn btn-sm btn-outline-secondary"
-                  = link_to "Delete", article_path(article.id), method: :delete, class: "btn btn-sm btn-outline-secondary"
-                %small.text-muted
+              .card-body__info
+                .card-body__info--title
+                  = article.title
+                .card-body__info--prefecture
                   = article.prefecture.name
+              .card-body--detail
+                .card-body--detail--text #{article.detail}
 .animation
   = link_to list_articles_path do
     .loader

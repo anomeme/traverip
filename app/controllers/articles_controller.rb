@@ -40,17 +40,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @article.update(article_params)
-      redirect_to article_photos_path(@article), notice: 'グループを編集しました。'
-    else
-      render :edit
-    end
-  end
-
   def destroy
     if article = Article.find_by(id: params[:id])
       article.destroy
