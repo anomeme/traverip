@@ -23,19 +23,19 @@
   &__name{
     margin-top: 20px;
     h3 {
-      position: relative;/*相対位置*/
-      padding-left: 1.2em;/*アイコン分のスペース*/
-      line-height: 1.4;/*行高*/
+      position: relative;
+      padding-left: 1.2em;
+      line-height: 1.4;
     }
     h3:before {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
-      content: "\f14e";/*アイコンのユニコード*/
-      position: absolute;/*絶対位置*/
-      font-size: 1em;/*サイズ*/
-      left: 0;/*アイコンの位置*/
-      top: 0;/*アイコンの位置*/
-      color: #f98bff; /*アイコン色*/
+      content: "\f14e";
+      position: absolute;
+      font-size: 1em;
+      left: 0;
+      top: 0;
+      color: #f98bff;
     }
   }
   &__contents{
@@ -100,4 +100,23 @@
 
 .card-box{
   height: 300px !important;
+}
+
+.prefecture_link{
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.prefecture_link:hover{
+  text-decoration: none;
+  color: #333;
+  -webkit-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+  opacity: 0.8;
 }

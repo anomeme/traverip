@@ -19,11 +19,18 @@
         .swiper-button-next
           %i.fas.fa-chevron-right.fa-3x
         .swiper-pagination
+    .article-show__left__favorite
+      - if Favorite.exists?(user_id: current_user.id, article_id: @article.id)
+        = link_to add_article_path(id: @article.id), method: :delete, class: "favo_link" do
+          %i.fas.fa-star.icon.fa-3x.d_favo_icon
+      - else
+        = link_to add_article_path(id: @article.id), method: :post, class: "favo_link" do
+          %i.far.fa-star.icon.fa-3x.p_favo_icon
     .article-show__left__detail
       .article-show__left__detail--title
         %p.detail-title 概要
       .article-show__left__detail--text
-        = @article.detail
+        = simple_format(@article.detail)
     .article-show__left__albums
       %span.album-title> 投稿写真
       .article-show__left__albums__box
@@ -52,7 +59,7 @@
     .article-show__right__box
       - @relation_prefectures.each do |prefecture|
         .article-show__right__box--prefecture
-          = link_to "", article_path(prefecture.id), class:"prefecture-link"
+          = link_to article_path(prefecture.id), class:"prefecture-link"
           = image_tag (prefecture.image.url), class:"article-show__right__box--prefecture--image"
           %h5.article-show__right__box--prefecture--title #{prefecture.title}
 .gray_panel#gray_panel

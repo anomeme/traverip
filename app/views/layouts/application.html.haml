@@ -28,10 +28,13 @@
         %i.fa.fa-paper-plane.fa-2x
         %p.header__title__link--sub Enjoy your trip!
     - if user_signed_in?
+      - if current_user.id == 1
+        .header__favorite
+          = link_to "new-article", new_article_path, class: "header-btn"
       .header__mypage
         = link_to "Mypage", user_path(current_user.id), class: "header-btn"
       .header__favorite
-        = link_to "Favorite", new_article_path, class: "header-btn"
+        = link_to "Favorite", favorite_user_path(current_user.id), class: "header-btn"
       .header__signout
         = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-btn"
     - else

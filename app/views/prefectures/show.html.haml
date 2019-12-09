@@ -8,10 +8,11 @@
       .prefecture_show__contents
         - prefecture.articles.last(6).each do |article|
           .card.shadow-sm.prefecture_show__contents--card
-            = link_to "", article_path(article.id), method: :get, class: "prefecture_show__contents--card--link"
-            %img.prefecture_show__contents--card--image{src: "#{article.image.url}"}
-            .prefecture_show__contents--card--body
-              = article.title
+            = link_to article_path(article.id), method: :get, class:"prefecture_link" do
+              .prefecture_show__contents--card--link
+              %img.prefecture_show__contents--card--image{src: "#{article.image.url}"}
+              .prefecture_show__contents--card--body
+                = article.title
       = link_to "もっとみる", prefecture_path(id: prefecture.id), class:"article_contents__recommended--btn"
   - else 
     .prefecture_show__header
@@ -23,7 +24,8 @@
     .article_contents__list__new.row
       - @prefecture.articles.each do |article|
         .card.shadow-sm.prefecture_show__contents--card.card-box
-          = link_to "", article_path(article.id), method: :get, class: "prefecture_show__contents--card--link"
-          %img.prefecture_show__contents--card--image{src: "#{article.image.url}"}
-          .prefecture_show__contents--card--body
-            = article.title
+          = link_to article_path(article.id), method: :get, class:"prefecture_link" do
+            .prefecture_show__contents--card--link
+            %img.prefecture_show__contents--card--image{src: "#{article.image.url}"}
+            .prefecture_show__contents--card--body
+              = article.title
