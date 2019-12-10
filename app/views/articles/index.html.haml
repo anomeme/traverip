@@ -49,6 +49,9 @@
                   = article.prefecture.name
               .card-body--detail
                 .card-body--detail--text #{article.detail}
+                - if user_signed_in?
+                  - if current_user.id == 1
+                    = link_to "削除", article_path(article.id), method: :delete
 .animation
   = link_to list_articles_path do
     .loader
