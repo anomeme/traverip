@@ -21,12 +21,13 @@
           %i.fas.fa-chevron-right.fa-3x
         .swiper-pagination
     .article-show__left__favorite
-      - if Favorite.exists?(user_id: current_user.id, article_id: @article.id)
-        = link_to add_article_path(id: @article.id), method: :delete, class: "favo_link" do
-          %i.fas.fa-star.icon.fa-3x.d_favo_icon
-      - else
-        = link_to add_article_path(id: @article.id), method: :post, class: "favo_link" do
-          %i.far.fa-star.icon.fa-3x.p_favo_icon
+      - if user_signed_in?
+        - if Favorite.exists?(user_id: current_user.id, article_id: @article.id)
+          = link_to add_article_path(id: @article.id), method: :delete, class: "favo_link" do
+            %i.fas.fa-star.icon.fa-3x.d_favo_icon
+        - else
+          = link_to add_article_path(id: @article.id), method: :post, class: "favo_link" do
+            %i.far.fa-star.icon.fa-3x.p_favo_icon
     .article-show__left__detail
       .article-show__left__detail--title
         %p.detail-title 概要
@@ -39,10 +40,11 @@
           .article-show__left__albums__box--album
             = image_tag (picture.image.url)
     .article-show__left__btn
-      .article-show__left__btn__new
-        %button.article-show__left__btn__new--button#post-btn 写真を投稿
-      .article-show__left__btn__show
-        = link_to "もっとみる", picture_path(@article.id), class:"article-show__left__btn__show--button"
+      - if user_signed_in?
+        .article-show__left__btn__new
+          %button.article-show__left__btn__new--button#post-btn 写真を投稿
+        .article-show__left__btn__show
+          = link_to "もっとみる", picture_path(@article.id), class:"article-show__left__btn__show--button"
   .article-show__right
     .article-show__right--relationtitle 関連エリア
     .article-show__right__relation
