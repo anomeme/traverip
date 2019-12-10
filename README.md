@@ -1,24 +1,23 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Appricaiton 概要
+旅行記事の閲覧、観光スポット写真の投稿と共有
+# 機能一覧
+・ユーザー登録、編集  
+・記事の閲覧(管理者のみ記事の作成、削除)   
+・記事のキーワード検索(複数キーワードの絞り込み可)  
+・各エリア(例：関東)毎の絞り込み  
+・記事のお気に入り登録  
+・観光スポット(記事)に対する写真の投稿  
+・写真とユーザーのリンクにより、他ユーザーの詳細ページ(投稿一覧)閲覧  
+# 仕様技術
+・Ruby 2.5.1  
+・Ruby on Rails 5.2.4  
+・HAML, SCSS, JavaScript(ライブラリ：jQuery)  
+・AWS(EC2, S3)  
+# 制作背景
+本アプリは旅行をテーマとして「traverip（travel & trip）」と題しています。
+自分の目標である"１からWebサービスを立ち上げる"のと、趣味の旅行を掛け合わせました。
+今まで学んだ知識、応用、新しい技術を取り入れることで、現段階で自分にはどれくらいの技量をアプリにまとめました。
+# 工夫したこと
+ユーザーの興味を惹くように、動的な要素を多く取り入れました。
+サービスはユーザーがいて成り立つので、一人でも多くの人の目に止まることを考えて作成しました。
+# DB設計
