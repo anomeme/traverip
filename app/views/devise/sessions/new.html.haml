@@ -2,6 +2,21 @@
   .sign-up
     %form
       %h1.sign-up-title Sign in
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-input", placeholder: "What's your email?"
-      = f.password_field :password, autocomplete: "current-password", class: "sign-up-input", placeholder: "Choose a password"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-input", placeholder: "What's your email?", id:"email"
+      = f.password_field :password, autocomplete: "current-password", class: "sign-up-input", placeholder: "Choose a password", id:"password"
       = f.submit "Sign in", class: "sign-up-button"
+  .infomation
+    %p テストアカウントでログイン
+    .btn-real-dent
+      %i.far.fa-smile
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", :type => "text/javascript"}
+:javascript
+  $(function(){
+    var mailTest = `<input autofocus="autofocus" autocomplete="email" class="sign-up-input" placeholder="What's your email?" type="email" value="test2@gmail.com" name="user[email]" id="user_email">`
+    var passTest = `<input autocomplete="current-password" class="sign-up-input" placeholder="Choose a password" type="password" name="user[password]" id="user_password" value="1234567" >`
+    $('.infomation').off('click');
+    $('.infomation').click('', function() {
+      $('#email').val('test2@gmail.com');
+      $('#password').val('1234567');
+    });
+  });
