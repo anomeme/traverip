@@ -1,4 +1,6 @@
-# Appricaiton 概要
+# Apprication
+## Traverip
+# 概要
 旅行記事の閲覧、観光スポット写真の投稿と共有
 # 機能一覧
 ・ユーザー登録、編集  
@@ -21,3 +23,4 @@
 ユーザーの興味を惹くように、動的な要素を多く取り入れました。
 サービスはユーザーがいて成り立つので、一人でも多くの人の目に止まることを考えて作成しました。
 # DB設計
+![ER図](https://github.com/anomeme/traverip/blob/master/ER%E5%9B%B3.png)
