@@ -3,7 +3,12 @@ crumb :root do
 end
 
 crumb :mypage do 
-  link "マイページ"
+  link "マイページ", user_path(current_user.id)
+end
+
+crumb :favorite do 
+  link "お気に入り"
+  parent :mypage
 end
 
 crumb :area do |area|
@@ -50,10 +55,6 @@ end
 
 crumb :search do 
   link "記事検索"
-end
-
-crumb :favorite do 
-  link "お気に入り"
 end
 
 
