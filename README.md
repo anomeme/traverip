@@ -1,5 +1,5 @@
 # Apprication
-## Traverip
+### Traverip
 # 概要
 旅行記事の閲覧、観光スポット写真の投稿と共有
 # 機能一覧
