@@ -11,14 +11,9 @@
   height: 250px;
   width: 250px;
   margin: 0 10px;
-  color: #333;
   font-size: 30px;
   padding: 5px 0 0 10px;
   object-fit: cover;
-  text-shadow:
-    1px 1px #aaa,
-    2px 2px #999,
-    3px 3px #888,
 }
 
 .article_header{
@@ -99,30 +94,49 @@
         .popularity1{
           @include osusume;
           background-image: image-url("tokyo.jpg");
+          border: double 4px #FF5722;
+          transition: .6s;
         }
         .popularity1:hover{
           text-decoration: none;
+          transform: rotateY(360deg);
+        }
+        h5{
+          padding-top: 5px;
+          color: rgb(74, 74, 74);
+          font-size: 26px;
+          text-align: center;
+          font-family: 'Noto Sans JP', sans-serif;
         }
         .popularity2{
           @include osusume;
           background-image: image-url("yokohama.jpg");
+          border: double 4px #FF5722;
+          transition: .6s;
         }
         .popularity2:hover{
           text-decoration: none;
+          transform: rotateY(360deg);
         }
         .popularity3{
           @include osusume;
           background-image: image-url("hokkaido.jpg");
+          border: double 4px #FF5722;
+          transition: .6s;
         }
         .popularity3:hover{
           text-decoration: none;
+          transform: rotateY(360deg);
         }
         .popularity4{
           @include osusume;
           background-image: image-url("yamanashi.jpg");
+          border: double 4px #FF5722;
+          transition: .6s;
         }
         .popularity4:hover{
           text-decoration: none;
+          transform: rotateY(360deg);
         }
       }
     }
