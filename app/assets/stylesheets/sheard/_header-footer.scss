@@ -1,90 +1,101 @@
-.header{
+.top{
   position: fixed;
   z-index:150;
   width: 100vw;
-  height: 70px;
-  display: flex;
-  background-color: rgba(255, 255, 255, 0.3);
-  font-family: 'Kaushan Script';
-  &__search{
-    width: 40%;
-    padding: 13px;
-    margin-left: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    input {
-      width: 90%;
-      padding: 12px 24px;
-      background-color: transparent;
-      transition: transform 250ms ease-in-out;
-      font-size: 14px;
-      line-height: 18px;
-      color: black;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      background-size: 18px 18px;
-      background-position: 95% center;
-      border-radius: 50px;
-      border: 1px solid black;
-      transition: all 250ms ease-in-out;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-    }
-    input::placeholder {
-      color: rgba(87, 87, 86, 0.8);
-      letter-spacing: 1.5px;
-    }
-    input:hover,
-    input:focus {
-      padding: 12px 0;
-      outline: 0;
-      border: 1px solid transparent;
-      border-bottom: 1px solid #575756;
-      border-radius: 0;
-      background-position: 100% center;
-    }
-  }
-  &__title{
-    font-family: 'Kaushan Script', cursive;
-    width: 20%;
-    padding-left: 55px;
-    &__link{
-      transition:800ms ease all;
-      text{
-        color: black;
-        font-size: 30px;
-        margin-right: 10px;
-      }
-      i{
-        color: black;
-      }
-      &--sub{
-        color: black;
-        margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  .header{
+    height: 70px;
+    display: flex;
+    font-family: 'Kaushan Script';
+    &__search{
+      width: 40%;
+      padding: 13px;
+      margin-left: 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      input {
+        width: 90%;
+        padding: 12px 24px;
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
         font-size: 14px;
+        line-height: 18px;
+        color: black;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 1px solid black;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+      }
+      input::placeholder {
+        color: rgba(87, 87, 86, 0.8);
+        letter-spacing: 1.5px;
+      }
+      input:hover,
+      input:focus {
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid #575756;
+        border-radius: 0;
+        background-position: 100% center;
       }
     }
-    &__link:hover{
-      text-decoration: none;
-      opacity: 0.8;
-      color:#4e5665;
+    &__title{
+      font-family: 'Kaushan Script', cursive;
+      width: 20%;
+      padding-left: 55px;
+      &__link{
+        transition:800ms ease all;
+        text{
+          color: black;
+          font-size: 30px;
+          margin-right: 10px;
+        }
+        i{
+          color: black;
+        }
+        &--sub{
+          color: black;
+          margin-left: 20px;
+          font-size: 14px;
+        }
+      }
+      &__link:hover{
+        text-decoration: none;
+        opacity: 0.8;
+        color:#4e5665;
+      }
+    }
+    &__mypage{
+      margin-left: 30px;
+      width: 10%;
+    }
+    &__favorite{
+      width: 10%;
+    }
+    &__signout{
+      width: 10%;
+    }
+    &__signin{
+      margin-left: 250px;
+      width: 10%;
+    }
+    &__signup{
+      width: 10%;
     }
   }
-  &__mypage{
-    margin-left: 30px;
-    width: 10%;
+  .gretel{
+    padding: 5px 40px;
+    color: #333;
   }
-  &__favorite{
-    width: 10%;
-  }
-  &__signout{
-    width: 10%;
-  }
-  &__signin{
-    margin-left: 250px;
-    width: 10%;
-  }
-  &__signup{
-    width: 10%;
+  .gretel:hover{
+    a{
+      text-decoration: none;
+    }
   }
 }
 

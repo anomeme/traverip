@@ -6,6 +6,12 @@
     height: 640px;
     padding: 20px 20px 0 90px;
     float: left;
+    .fa-undo-alt{
+      position: absolute;
+      top: 90px;
+      left: 35px;
+      color: #333;
+    }
     &__image{
       height: 580px;
       .picture-image{

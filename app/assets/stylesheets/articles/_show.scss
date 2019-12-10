@@ -340,7 +340,7 @@ $btn-color: rgb(102, 146, 222);
       height: 1020px;
       overflow: scroll;
       &--prefecture{
-        margin: 30px 0;
+        height: 280px;
         width: 100%;
         position: relative;
         .prefecture-link{
@@ -348,6 +348,8 @@ $btn-color: rgb(102, 146, 222);
           height: 250px;
           width: 300px;
           cursor: pointer;
+          margin: 10px 0;
+          color: #333;
         }
         &--image{
           height: 200px;

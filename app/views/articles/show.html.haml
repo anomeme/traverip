@@ -1,3 +1,4 @@
+- breadcrumb :area_show, @article
 .article-show
   .article-show__left
     .article-show__left__heading
@@ -58,10 +59,10 @@
     .article-show__right__area このエリアの別の場所
     .article-show__right__box
       - @relation_prefectures.each do |prefecture|
-        .article-show__right__box--prefecture
-          = link_to article_path(prefecture.id), class:"prefecture-link"
-          = image_tag (prefecture.image.url), class:"article-show__right__box--prefecture--image"
-          %h5.article-show__right__box--prefecture--title #{prefecture.title}
+        = link_to article_path(prefecture.id), class:"article-show__right__box--prefecture" do
+          .prefecture-link
+            = image_tag (prefecture.image.url), class:"article-show__right__box--prefecture--image"
+            %h5.article-show__right__box--prefecture--title #{prefecture.title}
 .gray_panel#gray_panel
 %link{href: "https://fonts.googleapis.com/css?family=Righteous&display=swap", rel: "stylesheet"}
 = form_with model: @picture, local: true do |f|
