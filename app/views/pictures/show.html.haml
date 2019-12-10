@@ -1,5 +1,7 @@
 .picture-show.clearfix
   .picture-show__left
+    = link_to :back do
+      %i.fas.fa-undo-alt.fa-2x
     .picture-show__left__image
       - @pictures.each do |picture|
         %img{src: "#{picture.image.url}", class: "picture-image", id:"#{picture.id}"}

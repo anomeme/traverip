@@ -1,5 +1,7 @@
+
 .prefecture_show.container
   - if @prefectures != nil
+    - breadcrumb :area
     .prefecture_show__header
       %p #{@prefecture.name}の観光ガイド
     - @prefectures.each do |prefecture|
@@ -15,6 +17,7 @@
                 = article.title
       = link_to "もっとみる", prefecture_path(id: prefecture.id), class:"article_contents__recommended--btn"
   - else 
+    - breadcrumb :area_spot
     .prefecture_show__header
       %p #{@prefecture.name}
     .prefecture_show__profile

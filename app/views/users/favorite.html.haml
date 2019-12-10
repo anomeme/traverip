@@ -1,16 +1,20 @@
+- breadcrumb :favorite
 .favorite
   .favorite__title
     %h1 お気に入り一覧
-  .article-list__contents
-    - @favorites.reverse.each do |favorite|
-      = link_to article_path(favorite.article_id), class: "col-md-4 article-card" do
-        .card.mb-4.shadow-sm
-          %img.image{src: "#{favorite.article.image.url}"}
-          .card-body
-            .card-body__info
-              .card-body__info--title
-                = favorite.article.title
-              .card-body__info--prefecture
-                = favorite.article.prefecture.name
-            .card-body--detail
-              .card-body--detail--text #{favorite.article.detail}
+  - if @favorites.length >= 1
+    .article-list__contents
+      - @favorites.reverse.each do |favorite|
+        = link_to article_path(favorite.article_id), class: "col-md-4 article-card" do
+          .card.mb-4.shadow-sm
+            %img.image{src: "#{favorite.article.image.url}"}
+            .card-body
+              .card-body__info
+                .card-body__info--title
+                  = favorite.article.title
+                .card-body__info--prefecture
+                  = favorite.article.prefecture.name
+              .card-body--detail
+                .card-body--detail--text #{favorite.article.detail}
+  - else
+    %p お気に入り登録した記事がありません。

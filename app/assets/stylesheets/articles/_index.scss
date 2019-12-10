@@ -6,11 +6,12 @@
 }
 
 @mixin osusume{
+  border-radius: 50%;
   display: block;
   height: 250px;
   width: 250px;
   margin: 0 10px;
-  color: #fff;
+  color: #333;
   font-size: 30px;
   padding: 5px 0 0 10px;
   object-fit: cover;
@@ -18,8 +19,6 @@
     1px 1px #aaa,
     2px 2px #999,
     3px 3px #888,
-    4px 4px #777,
-    5px 5px #666,
 }
 
 .article_header{
@@ -84,7 +83,7 @@
   font-family: 'Nanum Brush Script', cursive;
   &__recommended{
     height: 470px;
-    padding-top: 50px;
+    padding-top: 100px;
     &--title{
       display: flex;
       margin-left: 50px;
@@ -152,7 +151,7 @@
     }
   }
   &__area{
-    padding: 0 50px 50px;
+    padding: 100px 0;
     &--title{
       display: flex;
       margin-left: 50px;
