@@ -4,9 +4,31 @@
 }
 
 .new-article{
-  height: 100vh;
+  padding-top: 20px;
   width: 100vw;
   &__content{
     padding-top:70px;
   }
+}
+
+.article-title{
+  height: 30px;
+  width: 300px;
+}
+
+.article-prefecture{
+  height: 30px;
+  width: 300px;
+  margin: 10px;
+}
+
+.article-new{
+  height:300px;
+  width: 300px;
+  background-color: rgb(87, 188, 255);
+}
+
+.article-detail{
+  min-height: 200px;
+  width: 100%;
 }

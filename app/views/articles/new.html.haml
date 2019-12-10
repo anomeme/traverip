@@ -4,14 +4,14 @@
       .new-article__content__top
         .new-article__content__top__form
           .new-article__content__top__form--title
-            = f.text_field :title, class: "choosing", placeholder: "例）渋谷で見つけた、料理の美味しいカフェ"
+            = f.text_field :title, class: "choosing article-title", placeholder: "タイトルを記入"
           .new-article__content__top__form--prefecture
-            = f.collection_select :prefecture_id, Spot.all, :id, :name, {}, class: "choosing"
+            = f.collection_select :prefecture_id, Spot.all, :id, :name, {}, class: "choosing article-prefecture"
         .new-article__content__top--image
-          = f.file_field :image
-          = f.file_field :sub_image1
-          = f.file_field :sub_image2
+          = f.file_field :image, class: "article-new"
+          = f.file_field :sub_image1, class: "article-new"
+          = f.file_field :sub_image2, class: "article-new"
       .new-article__content__bottom
         .new-article__content__bottom--detail
-          = f.text_area :detail, class: "choosing",  rows: "5"
+          = f.text_area :detail, class: "choosing article-detail",  rows: "5", placeholder: "本文を記入"
     = f.submit
