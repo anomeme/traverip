@@ -27,7 +27,7 @@ $btn-color: rgb(102, 146, 222);
       margin-top: 30px;
       &--title{
         line-height: 30px;
-        width: 50%;
+        min-width: 50%;
         .title{
           position: relative;
           background: #eff4ff;
