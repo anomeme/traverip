@@ -56,7 +56,10 @@
           margin-right: 10px;
         }
         i{
-          color: black;
+          color: rgb(134, 116, 224);
+          background: -webkit-linear-gradient(0deg, rgb(134, 116, 224), rgb(84, 255, 224));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
         &--sub{
           color: black;

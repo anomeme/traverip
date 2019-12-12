@@ -12,6 +12,9 @@
           = f.file_field :sub_image1, class: "article-new"
           = f.file_field :sub_image2, class: "article-new"
       .new-article__content__bottom
+        = f.text_field :address, class: "choosing article-title", placeholder: "住所を記入"
+        -# = f.text_field :latitude, class: "choosing article-title", placeholder: "緯度"
+        -# = f.text_field :longitude, class: "choosing article-title", placeholder: "経度"
         .new-article__content__bottom--detail
           = f.text_area :detail, class: "choosing article-detail",  rows: "5", placeholder: "本文を記入"
     = f.submit

@@ -33,6 +33,33 @@
         %p.detail-title 概要
       .article-show__left__detail--text
         = simple_format(@article.detail)
+    #map
+    :javascript
+      function initMap() {
+        var spot = {lat: #{@article.latitude}, lng: #{@article.longitude}};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: spot
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '住所：#{@article.address}';
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position:spot,
+          map: map,
+          title: contentString
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCeZtdfofPInf4K5U16LNIxb6QJ3HaA1sc&callback=initMap"}
     .article-show__left__albums
       %span.album-title> 投稿写真
       .article-show__left__albums__box
@@ -45,6 +72,8 @@
           %button.article-show__left__btn__new--button#post-btn 写真を投稿
         .article-show__left__btn__show
           = link_to "もっとみる", picture_path(@article.id), class:"article-show__left__btn__show--button"
+
+
   .article-show__right
     .article-show__right--relationtitle 関連エリア
     .article-show__right__relation

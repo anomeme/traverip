@@ -82,6 +82,7 @@ gem 'erb2haml'
 gem 'active_hash'
 gem "gretel"
 gem 'ransack'
+gem 'geocoder'
 
 group :production do
   gem 'unicorn', '5.4.1'
