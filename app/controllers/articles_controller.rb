@@ -40,6 +40,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    if @article.update(article_params)
+      redirect_to article_path(id: @article.id), notice: "変更しました。"
+    else
+      render :show
+    end
+  end
+
   def destroy
     if article = Article.find_by(id: params[:id])
       article.destroy
@@ -56,6 +64,9 @@ class ArticlesController < ApplicationController
       :image,
       :sub_image1,
       :sub_image2,
+      :address,
+      :latitude,
+      :longitude,
       :prefecture_id
     )
   end

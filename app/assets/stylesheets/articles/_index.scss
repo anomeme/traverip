@@ -16,6 +16,28 @@
   object-fit: cover;
 }
 
+@mixin title_label{
+  font-family: "FontAwesome";
+  display: inline-block;
+  line-height: 40px;
+  position: absolute;
+  padding: 0em;
+  color: white;
+  background: #56d1da;
+  font-weight: normal;
+  width: 70px;
+  text-align: center;
+  height: 70px;
+  line-height: 65px;
+  left: -1.35em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: solid 3px white; 
+  border-radius: 50%;
+  font-size: 35px;
+}
+
 .article_header{
   width: 100vw;
   height: 600px;
@@ -82,12 +104,22 @@
     &--title{
       display: flex;
       margin-left: 50px;
-      i{
-        margin: 10px 10px 0 0;
+      .index-title {
+        position: relative;
+        background: #56d1da;
+        padding: 2px 60px;
+        font-size: 30px;
+        color: #474747;
+        border-radius: 0 10px 10px 0;
+        color: white;
+      }
+      .index-title:before {
+        @include title_label;
+        content: "\f005";
       }
     }
     ul{
-      margin-top: 30px;
+      margin-top: 50px;
       width: 100%;
       li{
         display: inline-block;
@@ -168,9 +200,20 @@
     padding: 100px 0;
     &--title{
       display: flex;
-      margin-left: 50px;
-      i{
-        margin: 10px 10px 0 0;
+      margin-left: 70px;
+      .index-title {
+        position: relative;
+        background: #56d1da;
+        padding: 2px 60px;
+        font-size: 30px;
+        color: #474747;
+        border-radius: 0 10px 10px 0;
+        color: white;
+      }
+      .index-title:before {
+        @include title_label;
+        content: "\f21d";
+        line-height: 63px;
       }
     }
     &__map{
@@ -188,8 +231,19 @@
     &--title{
       display: flex;
       margin-left: 50px;
-      i{
-        margin-right: 10px;
+      .index-title {
+        position: relative;
+        background: #56d1da;
+        padding: 2px 60px;
+        font-size: 30px;
+        color: #474747;
+        border-radius: 0 10px 10px 0;
+        color: white;
+      }
+      .index-title:before {
+        @include title_label;
+        content: "\f024";
+        line-height: 63px;
       }
     }
     .article-list__contents{
@@ -318,3 +372,4 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
   border-bottom: none;
 }
+

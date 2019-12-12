@@ -7,4 +7,8 @@ class Article < ApplicationRecord
   has_many :pictures, dependent: :destroy
   has_many :favorites
   has_many :users, through: :favorites
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 end
