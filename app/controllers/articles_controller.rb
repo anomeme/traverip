@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
   def list
     @list = Article.includes(:prefecture).length
-    @articles = Article.includes(:prefecture).order("created_at DESC").page(params[:page]).per(15)
+    @articles = Article.includes(:prefecture).order("created_at DESC")
   end
 
   def list_search
