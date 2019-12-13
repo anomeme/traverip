@@ -39,8 +39,8 @@
     #map
     :javascript
       function initMap() {
-        var lat = #{@article.latitude};
-        var lng = #{@article.longitude}
+        var lat = (#{@article.latitude});
+        var lng = (#{@article.longitude});
         var spot = {lat, lng};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
