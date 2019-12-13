@@ -1,5 +1,8 @@
 - breadcrumb :area_show, @article
 .article-show
+  - if user_signed_in?
+    - if current_user.id == 1
+      = link_to "編集", edit_article_path(@article.id), class:"card-body--detail--text"
   .article-show__left
     .article-show__left__heading
       .article-show__left__heading--title
