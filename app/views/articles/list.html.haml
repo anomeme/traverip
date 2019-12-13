@@ -3,7 +3,7 @@
   .article-list--title
     %h1 全国の記事一覧
   .article-list--detail
-    %p 関連する記事は#{@articles.length}件あります。
+    %p 関連する記事は#{@articles.size}件あります。
   .article-list__box
     .wave.-one
     .wave.-two
@@ -46,6 +46,10 @@
                 = article.prefecture.name
             .card-body--detail
               .card-body--detail--text #{article.detail}
+              - if user_signed_in?
+                - if current_user.id == 1
+                  = link_to "削除", article_path(article.id), method: :delete, class:"card-body--detail--text"
+                  = link_to "編集", edit_article_path(article.id), class:"card-body--detail--text"
   .paginate
     = paginate @articles
 .return_btn TOP
