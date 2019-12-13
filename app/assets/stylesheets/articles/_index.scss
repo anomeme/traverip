@@ -216,6 +216,18 @@
         line-height: 63px;
       }
     }
+    &--message {
+      width: 435px;
+      padding: 0.5em 1em;
+      margin: 2em;
+      color: #232323;
+      background: #f3ffe8;
+      border-left: solid 10px #2fe3aa;
+      p {
+        margin: 0; 
+        padding: 0;
+      }
+    }
     &__map{
       margin: 0 auto;
       width: 700px;

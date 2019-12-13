@@ -31,6 +31,8 @@
   .article_contents__area.container
     .article_contents__area--title
       %h3.index-title エリアから探す
+    .article_contents__area--message
+      %p 記事は「北海道」、「関東」、「中部」のみ用意してあります。
     .article_contents__area__map
       = image_tag ('japan_map.png'), class: "article_contents__area__map--japan"
       = render partial: "area-point", locals: {prefectures:  @prefectures}
