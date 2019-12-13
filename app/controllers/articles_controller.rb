@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     @picture = Picture.new
     @relation_prefectures = Article.where(prefecture: @article.prefecture).where('id != ?', @article.id).order("created_at DESC")
     @parent_prefecture = Prefecture.find(@article.prefecture.parent_id)
-    @geocoder = Geocoder.coordinates(@article.title)
+    @geocoder = Geocoder.coordinates(@article.address)
     if @geocoder != nil
       @lat = @geocoder[0]
       @lng = @geocoder[1]
