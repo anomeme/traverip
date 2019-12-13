@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def list
+    @list = Article.includes(:prefecture).length
     @articles = Article.includes(:prefecture).order("created_at DESC").page(params[:page]).per(15)
   end
 
