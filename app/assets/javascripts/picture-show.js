@@ -5,7 +5,6 @@ $(function(){
       return imghtml;
     }
     function info(picture){
-      console.log(picture)
       var image = picture.user_avatar ? `<img class="avatar" src="${picture.user_avatar}">`: `<img class="avatar" src="/assets/avatar-c973c17f3678d843a989182c2e5537d69b7aaf8cdb2427daad0fcf2b89d2073a.png">`;
       var formhtml = `<a class="picture-show__right__form__user" href="/users/${picture.user_id}">
                         <div class="picture-show__right__form__user--avatar">
